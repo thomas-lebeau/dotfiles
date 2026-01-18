@@ -8,10 +8,11 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ENV_HINTS=1
 
-# Homebrew
-export PATH=/usr/local/sbin:$PATH
+# Homebrew - works for both Intel (/usr/local) and Apple Silicon (/opt/homebrew)
+BREW_PREFIX="$(brew --prefix)"
+export PATH="${BREW_PREFIX}/sbin:$PATH"
 
-source $(brew --prefix)/etc/profile.d/z.sh
+source "${BREW_PREFIX}/etc/profile.d/z.sh"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
