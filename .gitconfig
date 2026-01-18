@@ -113,3 +113,6 @@
 # Work config
 [includeIf "gitdir:~/Work/"]
   path = ~/.gitconfig.work
+
+[init]
+	defaultBranch = main

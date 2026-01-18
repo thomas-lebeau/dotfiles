@@ -25,6 +25,7 @@ zstyle ':autocomplete:*' widget-style menu-select
 
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+bindkey -M menuselect '^[' undo
 
 export NVM_DIR="$HOME/.nvm"
 
