@@ -62,7 +62,6 @@ shopt -s nocaseglob
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell;
-# export ANDROID_HOME=/usr/local/share/android-sdk
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 

@@ -3,21 +3,20 @@
 # Exit on error, undefined variables, and pipe failures
 set -euo pipefail
 
-system_type=$(uname -s)
+# install homebrew if it's missing
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Installing homebrew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
-if [ "$system_type" = "Darwin" ]; then
+if [ -f "$HOME/Brewfile" ]; then
+  echo "Updating homebrew bundle"
+  brew bundle --global
+fi
 
-  # install homebrew if it's missing
-  if ! command -v brew >/dev/null 2>&1; then
-    echo "Installing homebrew"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  fi
+SYSTEM_TYPE=$(uname -s)
 
-  if [ -f "$HOME/Brewfile" ]; then
-    echo "Updating homebrew bundle"
-    brew bundle --global
-  fi
-
+if [ "$SYSTEM_TYPE" = "Darwin" ]; then
   if [ -d "$HOME/.config/iterm2" ]; then
     echo "Setting iTerm preference folder"
     defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.config/iterm2"
@@ -34,16 +33,13 @@ if [ "$system_type" = "Darwin" ]; then
   open .config/iterm2/GitHub\ Light\ Default.itermcolors
 fi
 
-# install volta if it's missing
-if ! command -v volta >/dev/null 2>&1; then
-  echo "Installing Volta (Node Version Manager)"
-  # Install Volta
-  curl https://get.volta.sh | bash
 
-  # Load volta
-  export VOLTA_HOME="$HOME/.volta"
-  export PATH="$VOLTA_HOME/bin:$PATH"
-
-  # Install latest LTS Node.js
+if [ -x command -v volta ]; then
+  echo "Installing latest LTS Node.js via Volta"
   volta install node
+fi
+
+if [ "$SHELL" != "$(which zsh)" ]; then
+  echo "Changing default shell to zsh"
+  chsh -s $(which zsh)
 fi
