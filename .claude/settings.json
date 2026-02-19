@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "VISUAL": "code"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(date:*)",
+      "Bash(file:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(head:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(pwd:*)",
+      "Bash(rg:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(which:*)",
+      "Bash(tree:*)",
+      "Bash(git add:*)",
+      "Bash(git bisect:*)",
+      "Bash(git blame:*)",
+      "Bash(git diff:*)",
+      "Bash(git fetch:*)",
+      "Bash(git grep:*)",
+      "Bash(git log:*)",
+      "Bash(git ls-remote:*)",
+      "Bash(git merge:*)",
+      "Bash(git pull:*)",
+      "Bash(git remote show:*)",
+      "Bash(git restore:*)",
+      "Bash(git show:*)",
+      "Bash(git status:*)",
+      "Bash(git stash:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh repo list:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh status:*)",
+      "Bash(npm info:*)",
+      "Bash(yarn typecheck:*)",
+      "Bash(yarn format:*)",
+      "Bash(yarn lint:*)",
+      "Bash(yarn test:*)",
+      "Bash(yarn test:unit*)",
+      "Bash(yarn test:e2e*)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:docs.claude.com)",
+      "WebFetch(domain:platform.openai.com)",
+      "WebFetch(domain:caniuse.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:http-intake.logs.datadoghq.com)",
+      "WebFetch(domain:instrumentation-telemetry-intake.datadoghq.com)",
+      "WebFetch(domain:api.datadoghq.com)",
+      "mcp__atlassian__atlassianUserInfo",
+      "mcp__atlassian__getAccessibleAtlassianResources",
+      "mcp__atlassian__getConfluenceSpaces",
+      "mcp__atlassian__getConfluencePage",
+      "mcp__atlassian__getPagesInConfluenceSpace",
+      "mcp__atlassian__getConfluencePageFooterComments",
+      "mcp__atlassian__getConfluencePageInlineComments",
+      "mcp__atlassian__getConfluencePageDescendants",
+      "mcp__atlassian__searchConfluenceUsingCql",
+      "mcp__atlassian__getJiraIssue",
+      "mcp__atlassian__getTransitionsForJiraIssue",
+      "mcp__atlassian__lookupJiraAccountId",
+      "mcp__atlassian__searchJiraIssuesUsingJql",
+      "mcp__atlassian__getJiraIssueRemoteIssueLinks",
+      "mcp__atlassian__getVisibleJiraProjects",
+      "mcp__atlassian__getJiraProjectIssueTypesMetadata",
+      "mcp__atlassian__getJiraIssueTypeMetaWithFields",
+      "mcp__atlassian__search",
+      "mcp__atlassian__fetch",
+      "mcp__datadog__aggregate_datadog_ci_pipeline_events",
+      "mcp__datadog__aggregate_datadog_test_events",
+      "mcp__datadog__analyze_datadog_logs",
+      "mcp__datadog__get_datadog_flaky_tests",
+      "mcp__datadog__get_datadog_incident",
+      "mcp__datadog__get_datadog_metric",
+      "mcp__datadog__get_datadog_metric_context",
+      "mcp__datadog__get_datadog_notebook",
+      "mcp__datadog__get_datadog_trace",
+      "mcp__datadog__get_prs_by_head_branch",
+      "mcp__datadog__get_synthetics_tests",
+      "mcp__datadog__search_datadog_ci_pipeline_events",
+      "mcp__datadog__search_datadog_dashboards",
+      "mcp__datadog__search_datadog_docs",
+      "mcp__datadog__search_datadog_events",
+      "mcp__datadog__search_datadog_hosts",
+      "mcp__datadog__search_datadog_incidents",
+      "mcp__datadog__search_datadog_logs",
+      "mcp__datadog__search_datadog_metrics",
+      "mcp__datadog__search_datadog_monitors",
+      "mcp__datadog__search_datadog_notebooks",
+      "mcp__datadog__search_datadog_rum_events",
+      "mcp__datadog__search_datadog_service_dependencies",
+      "mcp__datadog__search_datadog_services",
+      "mcp__datadog__search_datadog_spans",
+      "mcp__datadog__search_pr_insights",
+      "mcp__ide__getDiagnostics",
+      "WebSearch"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)",
+      "Read(./config/credentials.json)",
+      "Read(./build)"
+    ],
+    "disableBypassPermissionsMode": "disable"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline-command.sh",
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "atlassian@claude-plugins-official": false,
+    "code-simplifier@claude-plugins-official": true,
+    "skills@datadog-claude-plugins": true,
+    "code-review@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "permissions@mat-brown-contrib": true,
+    "superpowers@claude-plugins-official": true
+  },
+  "outputStyle": "buddy",
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": false,
+    "allowUnsandboxedCommands": true,
+    "network": {
+      "allowedDomains": [
+        "localhost",
+        "github.com",
+        "api.github.com",
+        "anthropic.com",
+        "claude.com",
+        "caniuse.com",
+        "http-intake.logs.datadoghq.com",
+        "instrumentation-telemetry-intake.datadoghq.com",
+        "api.datadoghq.com"
+      ],
+      "allowAllUnixSockets": true,
+      "allowLocalBinding": true
+    }
+  },
+  "spinnerTipsEnabled": false,
+  "hook": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "statusMessage": "Checking code quality...",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "yarn typecheck"
+          },
+          {
+            "type": "command",
+            "command": "yarn lint"
+          },
+          {
+            "type": "command",
+            "command": "yarn format --write"
+          }
+        ]
+      }
+    ]
+  }
+}
