@@ -13,10 +13,11 @@ context: fork
 - Staged and unstaged changes: !`git diff HEAD`
 - Current branch: !`git branch --show-current`
 - Recent commits (style reference): !`git log --oneline -10`
+- format code: !`yarn format --write`
 
 ## Arguments
 
-$ARGUMENTS
+<$ARGUMENTS>
 
 If arguments are provided, use them as commit type, scope, and/or description.
 
@@ -40,7 +41,9 @@ If the current branch is `main` or `master`, create a new branch.
 ### 4. Stage Files Selectively
 
 ```bash
-git add <specific-files>
+git add <specific-files> \
+  <another-file> \
+  # Add only files relevant to the logical change being committed
 ```
 
 Do NOT use `git add -A` or `git add .`.
@@ -48,6 +51,7 @@ Do NOT use `git add -A` or `git add .`.
 ### 5. Generate Commit Message
 
 Use conventional commit format:
+
 ```
 <type>(<scope>): <brief description>
 

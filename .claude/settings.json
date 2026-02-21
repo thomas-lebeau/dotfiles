@@ -57,6 +57,7 @@
       "Bash(yarn test:*)",
       "Bash(yarn test:unit*)",
       "Bash(yarn test:e2e*)",
+      "Edit(/tmp)",
       "WebFetch(domain:docs.anthropic.com)",
       "WebFetch(domain:docs.claude.com)",
       "WebFetch(domain:platform.openai.com)",
@@ -112,6 +113,7 @@
       "mcp__datadog__search_datadog_spans",
       "mcp__datadog__search_pr_insights",
       "mcp__ide__getDiagnostics",
+      "Skill(pr)",
       "WebSearch"
     ],
     "deny": [
@@ -119,7 +121,8 @@
       "Read(./.env.*)",
       "Read(./secrets/**)",
       "Read(./config/credentials.json)",
-      "Read(./build)"
+      "Read(./build)",
+      "Bash(npx *)"
     ],
     "disableBypassPermissionsMode": "disable"
   },
@@ -144,6 +147,7 @@
     "enabled": true,
     "autoAllowBashIfSandboxed": false,
     "allowUnsandboxedCommands": true,
+    "excludedCommands": ["git"],
     "network": {
       "allowedDomains": [
         "localhost",
@@ -151,36 +155,13 @@
         "api.github.com",
         "anthropic.com",
         "claude.com",
-        "caniuse.com",
         "http-intake.logs.datadoghq.com",
         "instrumentation-telemetry-intake.datadoghq.com",
         "api.datadoghq.com"
       ],
-      "allowAllUnixSockets": true,
+      "allowUnixSockets": ["/private/tmp/com.apple.launchd.*/Listeners"],
       "allowLocalBinding": true
     }
   },
-  "spinnerTipsEnabled": false,
-  "hook": {
-    "PostToolUse": [
-      {
-        "matcher": "Edit|Write",
-        "statusMessage": "Checking code quality...",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "yarn typecheck"
-          },
-          {
-            "type": "command",
-            "command": "yarn lint"
-          },
-          {
-            "type": "command",
-            "command": "yarn format --write"
-          }
-        ]
-      }
-    ]
-  }
+  "spinnerTipsEnabled": false
 }

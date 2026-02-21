@@ -12,10 +12,11 @@ context: fork
 - Repository: !`gh repo view --json nameWithOwner,defaultBranchRef --jq '{repo: .nameWithOwner, defaultBranch: .defaultBranchRef.name}' 2>/dev/null || echo "Unknown"`
 - Git status: !`git status --short`
 - Recent commits: !`git log --oneline -15`
+- PR description template (if exists): !`cat .github/PULL_REQUEST_TEMPLATE.md 2>/dev/null || echo "No template found"`
 
 ## Arguments
 
-$ARGUMENTS
+<$ARGUMENTS>
 
 If a base branch is provided, use it. Otherwise, target the repository's default branch.
 
@@ -37,8 +38,9 @@ git push -u origin HEAD
 
 ### 3. Build the PR Description
 
-- Check if `@.github/PULL_REQUEST_TEMPLATE.md` exists. Use it if available, otherwise use Summary + Test Plan sections.
-- Summarize changes from commits and diff.
+- Check if `.github/PULL_REQUEST_TEMPLATE.md` exists. If available you MUST use it; otherwise, use Summary + Test Plan sections.
+- If the template contains placeholders (e.g. `<!--- Describe your changes in detail -->`), fill them with relevant information from the commits and diffs.
+- Keep the changes section concise — like a commit message, not a detailed breakdown. A few short bullet points capturing the intent is enough; avoid listing every file or implementation detail.
 - Use mermaid diagrams only for architectural changes (new service interactions, data flows, state machines).
 
 ### 4. Create the Draft PR
